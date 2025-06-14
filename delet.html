@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Printers Press</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    nav {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    .nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 24px;
+      background: none;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .blue-bar {
+      height: 5px;
+      background-color: blue;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        margin-top: 10px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-top">
+      <div class="logo">Printers<br>Press</div>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#">Home</a>
+      <a href="#">Corporate</a>
+      <a href="#">Our Service</a>
+      <a href="#">Join Us</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+  <div class="blue-bar"></div>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
