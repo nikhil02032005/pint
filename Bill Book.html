@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Bill Book.css">
 </head>
 <body>
-  <nav>
+    <nav>
     <div class="nav-top">
       <div class="logo">PrintersPress</div>
       <button class="menu-btn" onclick="toggleMenu()">☰</button>
@@ -22,22 +22,15 @@
   </nav>   
     <br>
       <div class="box1">
-        <div id="text-box">WE PRINT DOCUMENTS ONLINE.</div>
+        <div id="text-box">Bill Book<br><h6>Bill Book / Challan Book / Invoice Book Designs</h6></div>
       </div>
-      <div class="box2">
-<div class="1"><a href="Visiting Card.html"><img src="VC.jpg" alt=""><br>Visiting Card <h3>Free Desgins Available:250</h3></a></div>
-<div class="2"><a href=""><img src="DIE.jpg" alt=""><br>Die Cut Visiting Card <h3>Free Designs Available:181</h3></a></div>
-<div class="3"><a href="Letter Head.html"><img src="Letter.jpg" alt=""><br>Letter Head <h3>Free Designs Available:42</h3></a></div>
-<div class="4"><a href="Envelope.html"><img src="Envlope.jpg" alt=""><br>Envelope <h3>Free Desgins Available:20</h3></a></div>
-<div class="5"><a href="Bill Book.html"><img src="Bill Book.jpg" alt=""><br>Bill Book <h3>Free Desgins Available:20</h3></a></div>
-<div class="6"><a href="ATM.html"><img src="atm.jpg" alt=""><br>ATM Pouch<h3>Free Desgins Available:12</h3></a></div>
-<div class="7"><a href="Doctor Files.HTML"><img src="123 (1).jpg" alt=""><br>Doctor Files<h3>Free Desgins Available:6</h3></a></div>
-<div class="7"><a href="UV Texture.html"><img src="texture.jpg" alt=""><br>UV Texture<h3>Free Desgins Available:20</h3></a></div>
-<div class="7"><a href="ID Card.html"><img src="ID Card.jpg" alt=""><br>ID Card<h3>Free Desgins Available:20</h3></a></div>
+    <div class="pagination">
+    <button onclick="prevPage()"><< Previous Page</button>
+    <button onclick="nextPage()">Next Page >></button>
+  </div>
+  <div class="gallery" id="gallery"></div>
 
-      </div>
-      <hr> 
-      <footer>
+
         <footer style="background-color: #222; color: #fff; padding: 40px 20px; font-size: 20px;" >
           <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
             
@@ -89,25 +82,73 @@
             </div>
           </div>
         </footer>
-        
-      </footer>
-      <script>
-        const texts = ["WE PRINT DOCUMENTS ONLINE.", "WE PRINT BOOKS ONLINE.", "WE PRINT CERTIFICATE & CARDS ONLINE.", 
-        "WE PRINT POSTERS ONLINE.",  "WE PRINT LETTERHEAD & STATIONERY ONLINE."
-         , "WE PRINT VISTING CARDS ONLINE.", "WE PRINT STICKERS AND LABELS ONLINE."
-         , "WE PRINT DOCUMENT BINDING ONLINE.", "WE PRINT ALL PRODUCT ONLINE."];
-         
-        let index = 0;
-        const textBox = document.getElementById("text-box");
-    
-        setInterval(() => {
-          index = (index + 1) % texts.length;
-          textBox.textContent = texts[index];
-        }, 2000);
-        function toggleMenu() {
+        <script>
+    const images = [
+      { src: 'image/103_INV-1.jpg', title: 'Design 241' },
+      { src: 'image/259_INV-2.jpg', title: 'Design 242' },
+      { src: 'image/260_INV-3.jpg', title: 'Design 241' },
+      { src: 'image/261_INV-4.jpg', title: 'Design 242' },
+      { src: 'image/262_INV-5.jpg', title: 'Design 241' },
+      { src: 'image/263_INV-6.jpg', title: 'Design 242' },
+      { src: 'image/264_INV-7.jpg', title: 'Design 241' },
+      { src: 'image/265_INV-8.jpg', title: 'Design 242' },
+      { src: 'image/266_INV-9.jpg', title: 'Design 241' },
+      { src: 'image/267_INV-10.jpg', title: 'Design 242' },
+      { src: 'image/318_INV-11.jpg', title: 'Design 241' },
+      { src: 'image/319_INV-12.jpg', title: 'Design 242' },
+      { src: 'image/320_INV-13.jpg', title: 'Design 241' },
+      { src: 'image/321_INV-14.jpg', title: 'Design 242' },
+      { src: 'image/322_INV-15.jpg', title: 'Design 241' },
+      { src: 'image/323_INV-16.jpg', title: 'Design 242' },
+      { src: 'image/324_INV-17.jpg', title: 'Design 241' },
+      { src: 'image/325_INV-18.jpg', title: 'Design 242' },
+      { src: 'image/326_INV-19.jpg', title: 'Design 241' },
+      { src: 'image/327_INV-20.jpg', title: 'Design 242' },
+    ];
+
+    const itemsPerPage = 8;
+    let currentPage = 0;
+
+    function renderGallery() {
+      const gallery = document.getElementById('gallery');
+      gallery.innerHTML = '';
+
+      const start = currentPage * itemsPerPage;
+      const end = start + itemsPerPage;
+      const currentImages = images.slice(start, end);
+
+      currentImages.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${item.src}" alt="${item.title}">
+          <div class="card-title">${item.title}</d  iv>
+        `;
+        gallery.appendChild(card);
+      });
+    }
+
+    function nextPage() {
+      if ((currentPage + 1) * itemsPerPage < images.length) {
+        currentPage++;
+        renderGallery();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        renderGallery();
+      }
+    }
+
+    // Initial render
+    renderGallery();
+
+     function toggleMenu() {
       const nav = document.getElementById('navLinks');
       nav.classList.toggle('active');
     }
-      </script>
+  </script>
 </body>
 </html>

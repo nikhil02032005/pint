@@ -1,102 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Printers Press</title>
+  <meta charset="UTF-8">
+  <title>Image Pagination</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+      text-align: center;
     }
 
-    nav {
-      background-color: #333;
-      color: white;
-      padding: 10px 20px;
+    .pagination {
+      margin-bottom: 20px;
     }
 
-    .nav-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .menu-btn {
-      display: none;
-      font-size: 24px;
-      background: none;
+    .pagination button {
+      background-color: #007bff;
       color: white;
       border: none;
+      padding: 10px 16px;
+      margin: 5px;
       cursor: pointer;
+      border-radius: 5px;
     }
 
-    .nav-links {
-      display: flex;
+    .gallery {
+      display: grid;
+    grid-template-columns: repeat(4, 1fr);
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
-      justify-content: flex-end;
+      padding: 20px;
     }
 
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
+    .card {
+      background-color: #e0e0e0;
+      padding: 10px;
+      border-radius: 6px;
+      width: 200px;
     }
 
-    .nav-links a:hover {
-      text-decoration: underline;
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
     }
 
-    .blue-bar {
-      height: 5px;
-      background-color: blue;
-    }
-
-    /* Mobile Styles */
-    @media (max-width: 768px) {
-      .menu-btn {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        margin-top: 10px;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
+    .card-title {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <div class="nav-top">
-      <div class="logo">Printers<br>Press</div>
-      <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    </div>
-    <div class="nav-links" id="navLinks">
-      <a href="#">Home</a>
-      <a href="#">Corporate</a>
-      <a href="#">Our Service</a>
-      <a href="#">Join Us</a>
-      <a href="#">Contact</a>
-    </div>
-  </nav>
-  <div class="blue-bar"></div>
+  <div class="pagination">
+    <button onclick="prevPage()"><< Previous Page</button>
+    <button onclick="nextPage()">Next Page >></button>
+  </div>
+
+  <div class="gallery" id="gallery"></div>
 
   <script>
-    function toggleMenu() {
-      const nav = document.getElementById('navLinks');
-      nav.classList.toggle('active');
+    const images = [
+      { src: 'image1.jpg', title: 'Design 241' },
+      { src: 'image2.jpg', title: 'Design 242' },
+      { src: 'image3.jpg', title: 'Design 243' },
+      { src: 'image4.jpg', title: 'Design 244' },
+      { src: 'image5.jpg', title: 'Design 245' },
+      { src: 'image6.jpg', title: 'Design 246' },
+      { src: 'image7.jpg', title: 'Design 247' },
+      { src: 'image8.jpg', title: 'Design 248' },
+      { src: 'image9.jpg', title: 'Design 249' },
+      { src: 'image10.jpg', title: 'Design 250' },
+      { src: 'image10.jpg', title: 'Design 250' },
+      { src: 'image10.jpg', title: 'Design 250' },
+      { src: 'image10.jpg', title: 'Design 250' },
+      { src: 'image10.jpg', title: 'Design 250' },
+      { src: 'image10.jpg', title: 'Design 250' },
+      { src: 'image10.jpg', title: 'Design 250' },
+      { src: 'image10.jpg', title: 'Design 250' },
+      { src: 'image10.jpg', title: 'Design 250' }
+    ];
+
+    const itemsPerPage = 8;
+    let currentPage = 0;
+
+    function renderGallery() {
+      const gallery = document.getElementById('gallery');
+      gallery.innerHTML = '';
+
+      const start = currentPage * itemsPerPage;
+      const end = start + itemsPerPage;
+      const currentImages = images.slice(start, end);
+
+      currentImages.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${item.src}" alt="${item.title}">
+          <div class="card-title">${item.title}</d  iv>
+        `;
+        gallery.appendChild(card);
+      });
     }
+
+    function nextPage() {
+      if ((currentPage + 1) * itemsPerPage < images.length) {
+        currentPage++;
+        renderGallery();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        renderGallery();
+      }
+    }
+
+    // Initial render
+    renderGallery();
   </script>
 
 </body>

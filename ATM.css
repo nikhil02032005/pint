@@ -1,3 +1,4 @@
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -37,6 +38,7 @@ nav {
   cursor: pointer;
   display: none;
 }
+
 .nav-links {
   display: flex;
   justify-content: center;
@@ -50,37 +52,64 @@ nav {
   text-decoration: none;
 }
 
-  #text-box {
-    text-align: center;
-    font-size: 3rem;
-    color: #333;
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  .box2 img{
- width: 300px;
- align-items: center;
- padding: 10px;
- 
-  }
-  .box2 div{
-    padding: 20px;
-  }
-  .box2{
-    text-align: center;
-    grid-template-columns: repeat(4, 1fr);
-    display: grid;
-    margin: 20px;
-  }
-  a{
-    overflow: hidden;
-    text-decoration: none ;
-    color: white;
-  }
-  footer {
+.box1 {
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 24px;
+}
+
+.box1 h6 {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Gallery styles */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-title {
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* Pagination */
+.pagination {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.pagination button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Responsive Footer */
+footer {
   background-color: #222;
   color: #fff;
   padding: 40px 20px;
@@ -133,8 +162,9 @@ footer a + a {
   margin-left: 10px;
 }
 
-  @media (max-width: 768px) {
-    .nav-links {
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .nav-links {
     display: none;
     flex-direction: column;
     gap: 10px;
@@ -147,28 +177,11 @@ footer a + a {
   .nav-links.active {
     display: flex;
   }
-
+footer img{
+    margin: 2px;
+  }
   footer > div {
     flex-direction: column;
     gap: 20px;
   }
-  footer img{
-    margin: 1px;
-  }
-  #text-box {
-    text-align: center;
-    font-size: 2rem;
-    color: #333;
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  .box2{
-    grid-template-columns: repeat(1, 1fr);
-    display: grid;
-    margin: 20px;
-    padding: 20px;
-  }
-  }
+}
