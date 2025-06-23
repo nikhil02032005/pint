@@ -7,22 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
+   <nav>
     <div class="nav-top">
-      <div class="logo">PrintersPress</div>
+      <div class="logo"  style="text-align: center;">SHIV HUMAN OFFSET Printing Press</div>
       <button class="menu-btn" onclick="toggleMenu()">☰</button>
     </div>
     <div class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
-      <a href="#">Corporate</a>
-      <a href="#">Our Service</a>
-      <a href="#">Join Us</a>
-      <a href="#">Contact</a>
+      <a href="About Us.html">About Us</a>
+      <a href="1.html">Contact</a>
     </div>
-  </nav>   
+  </nav>     
     <br>
       <div class="box1">
-        <div id="text-box">Visiting Card<br><h6>Hundreds of free visiting card designs | Free downloads</h6></div>
+        <div id="text-box">Doctor Files<br><h6>For Doctor Files, Hospital Use and Corporate Purposes</h6></div>
       </div>
       <div class="box2">
 <div class="1"><a href="Doctor Files1.html"><img src="image/Doc File WithOut Poket.jpg" alt=""><br>Small Size 9"x12" <h3>Free Designs Available : 3</h3></a></div>
@@ -30,23 +28,18 @@
 
       </div>
       <hr> 
-      <footer>
+        <footer>
         <footer style="background-color: #222; color: #fff; padding: 40px 20px; font-size: 20px;" >
           <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
             
             <!-- Company Section -->
             <div>
-              <h3>Printers Club Group of Companies</h3>
-              <ul style="list-style: none; padding: 0;">
-                <li>Printers Club of India Ltd.</li>
-                <li>Printers Club Expo Pvt. Ltd.</li>
-                <li>Printers Club Today</li>
-              </ul>
+              <h3>SHIV HUMAN OFFSET Printing Press</h3>
+              
               <p>Dedicated for development of printing industry</p>
               <address>
-                Plot No. 57, Jhotwara Industrial Area,<br>
-                Near Shalimar Circle,<br>
-                Jaipur-302012, Rajasthan, India
+                Ladies Market,<br>
+                Mandi Adampur(Hisar)-125052, Haryana, India
               </address>
             </div>
         
@@ -54,14 +47,11 @@
             <div>
               <h4>USEFUL LINKS</h4>
               <ul style="list-style: none; padding: 0;" class="USEFUL">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Become Our Member</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Our Location</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Sign In</a></li>
+                <li><a href="About Us.html">About Us</a></li>
+                <li><a href="1.html">Contact Us</a></li>
+                <li><a href="1.html">Our Location</a></li>
+                <li><a href=".html">Terms & Conditions</a></li>
+                
               </ul>
             </div>
         
@@ -85,22 +75,7 @@
         
       </footer>
       <script>
-        const texts = ["WE PRINT DOCUMENTS ONLINE.", "WE PRINT BOOKS ONLINE.", "WE PRINT CERTIFICATE & CARDS ONLINE.", 
-        "WE PRINT POSTERS ONLINE.",  "WE PRINT LETTERHEAD & STATIONERY ONLINE."
-         , "WE PRINT VISTING CARDS ONLINE.", "WE PRINT STICKERS AND LABELS ONLINE."
-         , "WE PRINT DOCUMENT BINDING ONLINE.", "WE PRINT ALL PRODUCT ONLINE."];
-         
-        let index = 0;
-        const textBox = document.getElementById("text-box");
-    
-        setInterval(() => {
-          index = (index + 1) % texts.length;
-          textBox.textContent = texts[index];
-        }, 2000);
-        function toggleMenu() {
-      const nav = document.getElementById('navLinks');
-      nav.classList.toggle('active');
-    }
+       
       </script>
 </body>
 </html>
